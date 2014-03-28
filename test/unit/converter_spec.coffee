@@ -16,7 +16,11 @@ describe 'Converter', ->
 
   it 'returns an error for negative cm', ->
     expect @it.cmToIn '-3'
-      .toBeFalsy()
+      .toEqual NaN
+
+  it 'returns false if input it not cm', ->
+    expect @it.cmToIn 'invalid'
+      .toEqual NaN
 
   it 'converts in to cm', ->
     expect @it.inToCm '1'
@@ -27,7 +31,11 @@ describe 'Converter', ->
 
   it 'returns an error for negative inch', ->
     expect @it.inToCm '-3'
-      .toBeFalsy()
+      .toEqual NaN
+
+  it 'returns false if input it not inch', ->
+    expect @it.inToCm 'invalid'
+      .toEqual NaN
 
   it 'converts fahrenheit to celsius', ->
     expect @it.fahrenheitToCelsius '212'
@@ -38,7 +46,11 @@ describe 'Converter', ->
 
   it 'returns an error for too low fahrenheit', ->
     expect @it.fahrenheitToCelsius '-459.5'
-      .toBeFalsy()
+      .toEqual NaN
+
+  it 'returns false if input it not fahrenheit', ->
+    expect @it.fahrenheitToCelsius 'invalid'
+      .toEqual NaN
 
   it 'converts celsius to fahrenheit', ->
     expect @it.celsiusToFahrenheit '100'
@@ -49,5 +61,8 @@ describe 'Converter', ->
 
   it 'returns an error for too low celsius', ->
     expect @it.celsiusToFahrenheit '-273'
-      .toBeFalsy()
+      .toEqual NaN
 
+  it 'returns false if input it not celsius', ->
+    expect @it.celsiusToFahrenheit 'invalid'
+      .toEqual NaN

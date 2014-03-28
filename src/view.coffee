@@ -13,16 +13,13 @@ class View
   onCelsiusToFahrenheitClick: eventHandlerGen 'celsius-to-fahrenheit'
 
   inputToOutput: (f) -> =>
-    input = parseFloat @inputValue()
+    result = f @inputValue()
+    console.log result
 
-    if typeof input isnt 'number' or isNaN input
+    @hideError()
+
+    if isNaN result
       @showError()
-    else
-      @hideError()
-
-    result = f input
-
-    @showError() unless result
 
     @output result
 
@@ -39,9 +36,10 @@ class View
       .classList.add 'error'
 
     document.getElementById 'input-error-message'
-      .classList
-        .add 'error'
-        .remove 'hide'
+      .classList.add 'error'
+
+    document.getElementById 'input-error-message'
+      .classList.remove 'hide'
 
   hideError: ->
     document.getElementById 'input-value'
@@ -49,6 +47,7 @@ class View
 
     document.getElementById 'input-error-message'
       .classList.remove 'error'
+
     document.getElementById 'input-error-message'
       .classList.add 'hide'
 
