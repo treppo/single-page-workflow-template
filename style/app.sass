@@ -1,4 +1,6 @@
 @import bower_components/foundation/scss/normalize
+
+$primary-color: dodgerblue
 @import bower_components/foundation/scss/foundation
 
 body
@@ -7,17 +9,11 @@ body
 .main-container
   +grid-row
 
-.main-nav
-  +grid-column
-
-  @media #{$medium-up}
-    +grid-column($columns: 4)
-
-.main-nav_list
-  +side-nav
-
 .main-content
-  +grid-column
+  +grid-column($columns: 12)
 
-  @media #{$medium-up}
-    +grid-column($columns: 8)
+.value-field
+  font-size: 2em
+
+.operators
+  +grid-row
