@@ -1,7 +1,10 @@
-`import Hello from './hello'`
+`import Converter from './converter'`
+`import View from './view'`
 
-hello = new Hello
-helloMessage = document.createElement 'p'
-helloMessage.textContent = hello.message()
-document.getElementsByClassName('main-content')[0].appendChild helloMessage
+converter = new Converter
+view = new View
 
+view.onCmToInClick converter.cmToIn
+view.onInToCmClick converter.inToCm
+view.onFahrenheitToCelsiusClick converter.fahrenheitToCelsius
+view.onCelsiusToFahrenheitClick converter.celsiusToFahrenheit
